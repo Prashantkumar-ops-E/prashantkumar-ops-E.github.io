@@ -44,7 +44,7 @@ body{background:var(--ink);font-family:'Jost',sans-serif;color:var(--cream);over
 .begin-btn::before{content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-101%);transition:transform 0.4s cubic-bezier(0.76,0,0.24,1)}
 .begin-btn:hover::before{transform:translateX(0)}
 .begin-btn:hover{color:var(--ink)}
-.begin-btn span{position:relative;z-index:1}
+.begin-btn span{position:relative;z-index:3}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;padding:22px 60px;display:flex;justify-content:space-between;align-items:center;z-index:500;background:rgba(11,15,8,0.8);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,169,110,0.08);transition:all 0.4s}
@@ -65,10 +65,10 @@ nav.scrolled{background:rgba(11,15,8,0.97);padding:15px 60px;border-bottom:1px s
 /* HERO */
 #hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #hero-canvas{position:absolute;inset:0;z-index:1}
-.hero-side-text{position:absolute;writing-mode:vertical-rl;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--ash);top:50%;transform:translateY(-50%);z-index:3;opacity:0;animation:fade-in 1s ease forwards;animation-delay:2.5s}
+.hero-side-text{position:absolute;writing-mode:vertical-rl;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--ash);top:50%;transform:translateY(-50%);z-index:20;opacity:0;animation:fade-in 1s ease forwards;animation-delay:2.5s}
 .hero-side-text.left{left:36px}
 .hero-side-text.right{right:36px;transform:translateY(-50%) rotate(180deg)}
-.hero-content{position:relative;z-index:1;text-align:center;max-width:960px;padding:0 40px}
+.hero-content{position:relative;z-index:20;text-align:center;max-width:960px;padding:0 40px}
 .hero-eyebrow{font-size:9px;letter-spacing:7px;text-transform:uppercase;color:var(--gold);margin-bottom:32px;opacity:0;animation:fade-in 1s ease forwards;animation-delay:.3s}
 .hero-name{font-family:'Italiana',serif;font-size:clamp(64px,12vw,140px);line-height:.9;letter-spacing:-2px;color:var(--cream);overflow:hidden}
 .hero-name-line{display:block;opacity:0;transform:translateY(100%);animation:line-reveal 1s cubic-bezier(0.76,0,0.24,1) forwards}
@@ -83,26 +83,26 @@ nav.scrolled{background:rgba(11,15,8,0.97);padding:15px 60px;border-bottom:1px s
 .cta-primary::before{content:'';position:absolute;inset:0;background:var(--ink);transform:translateX(-101%);transition:transform 0.4s cubic-bezier(0.76,0,0.24,1)}
 .cta-primary:hover::before{transform:translateX(0)}
 .cta-primary:hover{color:var(--gold)}
-.cta-primary span{position:relative;z-index:1}
+.cta-primary span{position:relative;z-index:3}
 .cta-line{width:1px;height:40px;background:var(--ash);opacity:0.4}
 .cta-ghost{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color 0.3s}
 .cta-ghost:hover{color:var(--gold)}
-.hero-stats{position:absolute;bottom:60px;left:60px;display:flex;gap:48px;z-index:3;opacity:0;animation:fade-in 1s ease forwards;animation-delay:2s}
+.hero-stats{position:absolute;bottom:60px;left:60px;display:flex;gap:48px;z-index:20;opacity:0;animation:fade-in 1s ease forwards;animation-delay:2s}
 .h-stat-n{font-family:'Playfair Display',serif;font-size:40px;color:var(--gold);line-height:1}
 .h-stat-l{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--ash);margin-top:6px}
-.scroll-ind{position:absolute;bottom:60px;right:60px;z-index:3;display:flex;flex-direction:column;align-items:center;opacity:0;animation:fade-in 1s ease forwards;animation-delay:2.5s}
+.scroll-ind{position:absolute;bottom:60px;right:60px;z-index:20;display:flex;flex-direction:column;align-items:center;opacity:0;animation:fade-in 1s ease forwards;animation-delay:2.5s}
 .scroll-line{width:1px;height:80px;background:linear-gradient(180deg,var(--gold),transparent);animation:scroll-tick 2s ease-in-out infinite}
 @keyframes scroll-tick{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(0.4);opacity:0.3}}
 
 /* MARQUEE */
-.marquee-band{background:linear-gradient(90deg,#1a2a14,#0d1a09,#1a2a14);padding:14px 0;overflow:hidden;position:relative;z-index:1}
+.marquee-band{background:linear-gradient(90deg,#1a2a14,#0d1a09,#1a2a14);padding:14px 0;overflow:hidden;position:relative;z-index:3}
 .marquee-track{display:flex;animation:marquee 22s linear infinite;white-space:nowrap}
 .marquee-track span{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(212,200,160,0.85);padding:0 32px;flex-shrink:0}
 .marquee-track span.dot{color:var(--gold);padding:0 8px}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ABOUT */
-#about{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;z-index:1}
+#about{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;z-index:3}
 .about-left{background:var(--ink);padding:120px 80px;display:flex;flex-direction:column;justify-content:center;position:relative}
 .about-left::after{content:'';position:absolute;right:0;top:10%;bottom:10%;width:1px;background:linear-gradient(180deg,transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:0.22}
 .about-right{background:var(--ink2);padding:120px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;align-items:center}
@@ -123,7 +123,7 @@ nav.scrolled{background:rgba(11,15,8,0.97);padding:15px 60px;border-bottom:1px s
 .ring-center-l{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--ash);margin-top:4px}
 
 /* TEAM */
-#team{background:var(--ink2);padding:140px 80px;position:relative;z-index:1;overflow:hidden}
+#team{background:var(--ink2);padding:140px 80px;position:relative;z-index:3;overflow:hidden}
 .team-bg{position:absolute;font-family:'Italiana',serif;font-size:220px;color:rgba(201,169,110,0.04);bottom:-20px;right:-10px;line-height:1;pointer-events:none}
 .team-header{margin-bottom:80px}
 .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
@@ -146,7 +146,7 @@ nav.scrolled{background:rgba(11,15,8,0.97);padding:15px 60px;border-bottom:1px s
 .card-footer a{color:var(--gold);text-decoration:none}
 
 /* SERVICES */
-#services{background:var(--ink);padding:140px 80px;position:relative;z-index:1}
+#services{background:var(--ink);padding:140px 80px;position:relative;z-index:3}
 #svc-canvas{position:absolute;inset:0;opacity:0.5;pointer-events:none}
 .svc-header{text-align:center;margin-bottom:80px;position:relative;z-index:2}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,169,110,0.1);position:relative;z-index:2}
@@ -170,7 +170,7 @@ nav.scrolled{background:rgba(11,15,8,0.97);padding:15px 60px;border-bottom:1px s
 .quote-source{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--ash)}
 
 /* WHY */
-#why{background:var(--ink2);padding:140px 80px;position:relative;z-index:1}
+#why{background:var(--ink2);padding:140px 80px;position:relative;z-index:3}
 .why-header{margin-bottom:80px}
 .why-grid{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid rgba(201,169,110,0.12)}
 .why-item{background:var(--ink3);padding:52px 48px;border-right:1px solid rgba(201,169,110,0.12);border-bottom:1px solid rgba(201,169,110,0.12);position:relative;overflow:hidden;transition:background .4s}
@@ -223,7 +223,7 @@ nav.scrolled{background:rgba(11,15,8,0.97);padding:15px 60px;border-bottom:1px s
 .esha-contact-text a:hover{color:var(--gold2)}
 
 /* FOOTER */
-footer{background:#060906;padding:44px 80px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(201,169,110,0.1);position:relative;z-index:1}
+footer{background:#060906;padding:44px 80px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(201,169,110,0.1);position:relative;z-index:3}
 .ft-brand{font-family:'Italiana',serif;font-size:24px;color:var(--gold);letter-spacing:3px}
 .ft-info{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,242,232,0.3);text-align:center}
 
@@ -235,7 +235,7 @@ footer{background:#060906;padding:44px 80px;display:flex;justify-content:space-b
 #replay-btn:hover{border-color:var(--gold);transform:translateY(-3px)}
 
 /* GLOBAL BG CANVAS */
-#global-canvas{position:fixed;inset:0;z-index:10;pointer-events:none;mix-blend-mode:screen}
+#global-canvas{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:1}
 
 /* ANIMATIONS */
 @keyframes fade-in{from{opacity:0}to{opacity:1}}
