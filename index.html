@@ -20,14 +20,14 @@ body{background:var(--ink);font-family:'Jost',sans-serif;color:var(--cream);over
 #cur-trail{position:fixed;width:40px;height:40px;border:1px solid rgba(201,169,110,0.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
 
 /* LOADER */
-#loader{position:fixed;inset:0;z-index:2000;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:20px}
+#loader{position:fixed;inset:0;z-index:2000;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:20px;width:100vw;height:100vh;min-height:100dvh}
 #loader.exit{animation:ldr-exit 1.2s cubic-bezier(0.76,0,0.24,1) forwards}
 @keyframes ldr-exit{0%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 0 100% 0);visibility:hidden}}
 .bar-top,.bar-bot{position:absolute;left:0;right:0;height:80px;background:var(--ink);z-index:10;transition:transform 1s cubic-bezier(0.76,0,0.24,1)}
 .bar-top{top:0}.bar-bot{bottom:0}
 #loader.bars-open .bar-top{transform:translateY(-100%)}
 #loader.bars-open .bar-bot{transform:translateY(100%)}
-#loader-canvas{position:absolute;inset:0;opacity:1}
+#loader-canvas{position:absolute;inset:0;opacity:1;width:100%!important;height:100%!important}
 .cin-sequence{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:5;gap:4px}
 .cin-line{font-family:'Playfair Display',serif;font-size:clamp(15px,3vw,26px);font-style:italic;color:rgba(245,242,232,0.82);letter-spacing:2px;text-align:center;opacity:0;transform:translateY(12px);transition:opacity 0.8s ease,transform 0.8s ease;padding:7px 0;line-height:1.5}
 .cin-line.cin-gold{font-style:normal;font-size:clamp(18px,4vw,34px);color:var(--gold);letter-spacing:5px;margin-top:14px}
@@ -57,13 +57,13 @@ nav.scrolled{background:rgba(11,15,8,0.97);padding:15px 60px;border-bottom:1px s
 .nav-links a:hover{color:var(--gold)}
 .nav-links a:hover::after{width:100%}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:600;padding:4px}
-.hamburger span{display:block;width:24px;height:1px;background:var(--cream);transition:all 0.3s}
+.hamburger span{display:block;width:24px;height:1px;background:var(--cream);transition:all 0.3s;position:relative;z-index:500}
 .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
 
 /* HERO */
-#hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;isolation:isolate}
+#hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;isolation:isolate;z-index:1}
 #hero-canvas{position:absolute;inset:0;z-index:1;border-radius:0;}
 .hero-side-text{position:absolute;writing-mode:vertical-rl;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--ash);top:50%;transform:translateY(-50%);z-index:20;opacity:0;animation:fade-in 1s ease forwards;animation-delay:2.5s}
 .hero-side-text.left{left:36px}
@@ -231,12 +231,12 @@ footer{background:#060906;padding:44px 80px;display:flex;justify-content:space-b
 #back-top{position:fixed;bottom:36px;right:36px;z-index:600;width:44px;height:44px;border:1px solid rgba(201,169,110,0.38);background:rgba(11,15,8,0.92);backdrop-filter:blur(10px);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .4s,transform .3s,border-color .3s;color:var(--gold);font-size:16px}
 #back-top.visible{opacity:1;pointer-events:all}
 #back-top:hover{transform:translateY(-4px);border-color:var(--gold)}
-#replay-btn{position:fixed;bottom:36px;left:36px;z-index:600;display:flex;align-items:center;gap:5px;padding:7px 12px;border:1px solid rgba(201,169,110,0.38);background:rgba(11,15,8,0.92);backdrop-filter:blur(10px);cursor:pointer;color:var(--gold);font-family:'Jost',sans-serif;font-size:7px;letter-spacing:2px;text-transform:uppercase;transition:all .3s;opacity:0;pointer-events:none}
+#replay-btn{position:fixed;bottom:90px;left:36px;z-index:600;display:flex;align-items:center;gap:5px;padding:7px 12px;border:1px solid rgba(201,169,110,0.38);background:rgba(11,15,8,0.92);backdrop-filter:blur(10px);cursor:pointer;color:var(--gold);font-family:'Jost',sans-serif;font-size:7px;letter-spacing:2px;text-transform:uppercase;transition:all .3s;opacity:0;pointer-events:none}
 #replay-btn:hover{border-color:var(--gold);transform:translateY(-3px)}
 #replay-btn.visible{opacity:1;pointer-events:all}
 
 /* GLOBAL BG CANVAS */
-#global-canvas{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:1}
+#global-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:1}
 
 /* ANIMATIONS */
 @keyframes fade-in{from{opacity:0}to{opacity:1}}
@@ -250,20 +250,20 @@ footer{background:#060906;padding:44px 80px;display:flex;justify-content:space-b
 /* MOBILE */
 @media(max-width:900px){
   nav{padding:16px 24px}
-  .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(11,15,8,0.98);flex-direction:column;align-items:center;justify-content:center;gap:32px;z-index:400}
+  .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:#0b0f08;flex-direction:column;align-items:center;justify-content:center;gap:32px;z-index:450;backdrop-filter:none}
   .nav-links.open{display:flex!important}
   .nav-links a{font-size:14px;letter-spacing:6px}
-  .hamburger{display:flex!important}
+  .hamburger{display:flex!important;position:relative;z-index:500}
   #about{grid-template-columns:1fr}
   .team-grid,.svc-grid,.why-grid{grid-template-columns:1fr}
   .cov-grid{grid-template-columns:repeat(2,1fr)}
   .hero-stats,.hero-side-text{display:none}
-  footer{flex-direction:column;gap:14px;text-align:center;padding:32px 24px}
+  footer{flex-direction:column;gap:14px;text-align:center;padding:32px 24px 100px}
   .about-left,.about-right{padding:80px 24px!important}
   #team,#services,#why,#coverage,#contact{padding:80px 24px!important}
   .esha-card{padding:40px 28px}
-  #replay-btn{bottom:20px;left:20px}
-  #back-top{bottom:20px;right:20px}
+  #replay-btn{bottom:76px;left:16px;font-size:6px;padding:6px 10px}
+  #back-top{bottom:16px;right:16px;width:38px;height:38px;font-size:14px}
 }
 </style>
 </head>
@@ -517,8 +517,8 @@ function closeMenu(){document.getElementById('hamburger').classList.remove('open
   // Champagne bubbles rising
   const bubbles=Array.from({length:40},()=>({
     x:Math.random()*window.innerWidth,y:window.innerHeight+Math.random()*300,
-    r:Math.random()*5+2,spd:Math.random()*.7+.3,
-    wob:Math.random()*Math.PI*2,wSpd:Math.random()*.025+.01,al:Math.random()*.25+.12
+    r:Math.random()*3+1.5,spd:Math.random()*.5+.25,
+    wob:Math.random()*Math.PI*2,wSpd:Math.random()*.025+.01,al:Math.random()*.15+.07
   }));
 
   // Floating gold particles
@@ -560,7 +560,7 @@ function closeMenu(){document.getElementById('hamburger').classList.remove('open
       if(b.y<-b.r)b.y=H+b.r;if(b.y>H+b.r)b.y=-b.r;
       const pulse=b.al+Math.sin(b.a)*.02;
       const g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
-      g.addColorStop(0,`rgba(${b.col},${pulse*2.5})`);
+      g.addColorStop(0,`rgba(${b.col},${pulse*1.4})`);
       g.addColorStop(.5,`rgba(${b.col},${pulse})`);
       g.addColorStop(1,`rgba(${b.col},0)`);
       ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
@@ -779,10 +779,10 @@ function initGlobalCanvas(){
   // ── Always: bokeh blobs ──
   const bokeh=Array.from({length:22},()=>({
     x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,
-    r:Math.random()*55+20,vx:(Math.random()-.5)*.12,vy:(Math.random()-.5)*.12,
-    a:Math.random()*Math.PI*2,spd:Math.random()*.008+.003,
+    r:Math.random()*30+10,vx:(Math.random()-.5)*.08,vy:(Math.random()-.5)*.08,
+    a:Math.random()*Math.PI*2,spd:Math.random()*.006+.002,
     col:Math.random()>.5?'201,169,110':'130,190,110',
-    al:Math.random()*.07+.03
+    al:Math.random()*.035+.012
   }));
 
   // ── Bubbles: always rising, more at scroll start ──
@@ -868,7 +868,7 @@ function initGlobalCanvas(){
       if(b.y<-b.r)b.y=H+b.r;if(b.y>H+b.r)b.y=-b.r;
       const pulse=(b.al+Math.sin(b.a)*.018)*(0.5+f2*.5+f3*.5+0.3);
       const g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
-      g.addColorStop(0,`rgba(${b.col},${pulse*2.5})`);
+      g.addColorStop(0,`rgba(${b.col},${pulse*1.4})`);
       g.addColorStop(.5,`rgba(${b.col},${pulse})`);
       g.addColorStop(1,`rgba(${b.col},0)`);
       ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
